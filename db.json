@@ -1,0 +1,108 @@
+{
+  "users": [
+    {
+      "_id": "60f83d64b7e651beda0ffd87",
+      "username": "BartonChilton",
+      "firstName": "Gillespie",
+      "lastName": "Barry",
+      "email": "gillespiebarry@pharmex.com",
+      "type": "Driver"
+    },
+    {
+      "_id": "60f83d64e365a4db927a28eb",
+      "username": "MccrayKidder",
+      "firstName": "Luann",
+      "lastName": "Mcpherson",
+      "email": "luannmcpherson@pharmex.com",
+      "type": "Driver"
+    },
+    {
+      "_id": "60f83d648ea5bbd35642b27a",
+      "username": "JohnnieCraig",
+      "firstName": "Vaughan",
+      "lastName": "Willis",
+      "email": "vaughanwillis@pharmex.com",
+      "type": "Administrator"
+    },
+    {
+      "_id": "60f83d642bb61bfbaa974d5a",
+      "username": "LindsayBartley",
+      "firstName": "Aurelia",
+      "lastName": "Carson",
+      "email": "aureliacarson@pharmex.com",
+      "type": "Administrator"
+    },
+    {
+      "_id": "60f83d6453548d66864ce981",
+      "username": "ClaudetteElrama",
+      "firstName": "Miranda",
+      "lastName": "Massey",
+      "email": "mirandamassey@pharmex.com",
+      "type": "Administrator"
+    },
+    {
+      "_id": "60f83d646bd3cf46c838bd6a",
+      "username": "KirkHanover",
+      "firstName": "Fowler",
+      "lastName": "Booker",
+      "email": "fowlerbooker@pharmex.com",
+      "type": "Driver"
+    },
+    {
+      "_id": "60f83d64112d6904fc1c5c48",
+      "username": "PhelpsEvergreen",
+      "firstName": "Alba",
+      "lastName": "Fulton",
+      "email": "albafulton@pharmex.com",
+      "type": "Driver"
+    },
+    {
+      "_id": "60f83d64fb6fe02f3da45057",
+      "username": "SaundraInnsbrook",
+      "firstName": "Randolph",
+      "lastName": "Webster",
+      "email": "randolphwebster@pharmex.com",
+      "type": "Administrator"
+    },
+    {
+      "_id": "60f83d642848959c244f7df8",
+      "username": "VanceWheatfields",
+      "firstName": "Haley",
+      "lastName": "Sutton",
+      "email": "haleysutton@pharmex.com",
+      "type": "Driver"
+    },
+    {
+      "_id": "60f83d6455ec64b9d49f24ca",
+      "username": "BrowningChloride",
+      "firstName": "Bonnie",
+      "lastName": "Gill",
+      "email": "bonniegill@pharmex.com",
+      "type": "Driver"
+    },
+    {
+      "_id": "60f83d641dc08ec27a05e535",
+      "username": "RobersonKenwood",
+      "firstName": "Mai",
+      "lastName": "Cantrell",
+      "email": "maicantrell@pharmex.com",
+      "type": "Driver"
+    },
+    {
+      "_id": "60f83d64772d72a1056c5a96",
+      "username": "KimBroadlands",
+      "firstName": "Harvey",
+      "lastName": "Castaneda",
+      "email": "harveycastaneda@pharmex.com",
+      "type": "Driver"
+    },
+    {
+      "_id": "60f83d6455dc79bc7403c111",
+      "username": "DavenportNicholson",
+      "firstName": "Mcneil",
+      "lastName": "Burt",
+      "email": "mcneilburt@pharmex.com",
+      "type": "Administrator"
+    }
+  ]
+}

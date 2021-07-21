@@ -1,0 +1,19 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tbody tr {
+  background-color: #f4f5f8;
+  border-bottom: 5px solid #fff;
+}
+
+tbody td,
+thead th {
+  height: 56px;
+  padding: 0 20px;
+}
+
+thead th {
+  text-align: inherit;
+}
