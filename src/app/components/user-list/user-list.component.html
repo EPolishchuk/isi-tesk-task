@@ -11,7 +11,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users">
+        <tr
+          *ngFor="let user of users; let i = index"
+          (click)="updateForm(user, i)"
+        >
           <td>
             {{ user?.username }}
           </td>
@@ -32,14 +35,41 @@
     </table>
   </div>
   <div class="col-xs-4">
-    <form class="form" (ngSubmit)="onSubmit()">
+    <form
+      *ngIf="uiMode !== 2"
+      [formGroup]="userData"
+      class="form"
+      (ngSubmit)="onSubmit()"
+    >
       <header>
-        <h3 *ngIf="uiMode.add">Create new user</h3>
-        <h3 *ngIf="uiMode.edit">Current user</h3>
+        <h3 *ngIf="uiMode === 0">Create new user</h3>
+        <h3 *ngIf="uiMode === 1">Current user</h3>
       </header>
-      <app-user-fields-form></app-user-fields-form>
-      <div class="form-field form-submit">
-        <input class="btn btn-create-user" type="submit" value="Create" />
+      <app-user-fields-form
+        [formFields]="userData"
+        [currentUser]="currentUser"
+      ></app-user-fields-form>
+      <div *ngIf="uiMode === 0" class="form-field form-create">
+        <input
+          class="btn btn-create-user"
+          name="create"
+          type="submit"
+          value="Create"
+        />
+      </div>
+      <div *ngIf="uiMode === 1" class="form-field form-update">
+        <input
+          class="btn btn-delete-user"
+          name="delete"
+          type="submit"
+          value="Delete"
+        />
+        <input
+          class="btn btn-update-user"
+          name="update"
+          type="submit"
+          value="Save"
+        />
       </div>
     </form>
   </div>

@@ -27,6 +27,7 @@ thead th {
 
 .form {
   padding: 2rem;
+  padding-bottom: 0;
   background-color: #ffffff;
   border-radius: 6px;
 }
@@ -52,7 +53,12 @@ thead th {
   width: 30%;
 }
 
-.form-submit {
+.form-create {
   display: flex;
   justify-content: center;
+}
+
+.form-update {
+  display: flex;
+  justify-content: space-between;
 }

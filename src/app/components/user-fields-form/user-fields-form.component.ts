@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { User } from 'src/app/Users';
 
 enum Type {
   Administrator = 'administrator',
@@ -11,6 +13,8 @@ enum Type {
   styleUrls: ['./user-fields-form.component.css'],
 })
 export class UserFieldsFormComponent implements OnInit {
+  @Input() currentUser?: User;
+  @Input() formFields!: FormGroup;
   username?: string;
   firstName?: string;
   lastName?: string;
@@ -21,5 +25,9 @@ export class UserFieldsFormComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('this is form: ', this.currentUser);
+    console.log('this is form: ', this.username);
+    this.username = this.currentUser?.username;
+  }
 }

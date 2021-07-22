@@ -1,6 +1,6 @@
-<div class="form-field">
+<div [formGroup]="formFields" class="form-field">
   <label for="username">Username*</label>
-  <input [(ngModel)]="username" type="text" name="username" id="username" />
+  <input formControlName="username" type="text" name="username" id="username" />
 </div>
 <div class="form-field">
   <label for="first-name">First name*</label>
