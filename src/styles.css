@@ -14,10 +14,68 @@
 
 body {
   font-family: "Helvetica", "Arial", sans-serif;
+  background-color: #eef0f8;
 }
 
 .container {
+  width: 100%;
+  padding: 10px 30px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
   display: flex;
-  max-width: 1024px;
-  padding: 30px;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: -0.5rem;
+  margin-left: -0.5rem;
+}
+
+.col-xs-4,
+.col-xs-8 {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+}
+
+.col-xs-4 {
+  flex-basis: 33.33333333%;
+  max-width: 33.33333333%;
+}
+
+.col-xs-8 {
+  flex-basis: 66.66666667%;
+  max-width: 66.66666667%;
+}
+
+.btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-create-user {
+  height: 46px;
+  background: #2e8ff0;
+  box-shadow: 0px 5px 8px #2e8ff029;
+  border-radius: 6px;
 }

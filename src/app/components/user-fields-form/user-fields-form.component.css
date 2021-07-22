@@ -1,0 +1,21 @@
+.form-field {
+  margin: 20px 0;
+}
+
+.form-field label {
+  display: block;
+}
+
+.form-field input,
+.form-field select,
+.form-field option {
+  width: 100%;
+  height: 46px;
+  margin: 5px 0;
+  padding: 15px;
+  font-size: 14px;
+  background-color: #f3f6f9;
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: 6px;
+}

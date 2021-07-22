@@ -1,34 +1,46 @@
-<table>
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>john.doe</td>
-      <td>John</td>
-      <td>Doe</td>
-      <td>john@doe.com</td>
-      <td>Administrator</td>
-    </tr>
-    <tr>
-      <td>jane.doe</td>
-      <td>Jane</td>
-      <td>Doe</td>
-      <td>jane@doe.com</td>
-      <td>Driver</td>
-    </tr>
-    <tr>
-      <td>alex.doe</td>
-      <td>Alex</td>
-      <td>Doe</td>
-      <td>alex@doe.com</td>
-      <td>Administrator</td>
-    </tr>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-xs-8">
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>
+            {{ user?.username }}
+          </td>
+          <td>
+            {{ user?.firstName }}
+          </td>
+          <td>
+            {{ user?.lastName }}
+          </td>
+          <td>
+            {{ user?.email }}
+          </td>
+          <td>
+            {{ user?.type }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-xs-4">
+    <form class="form" (ngSubmit)="onSubmit()">
+      <header>
+        <h3 *ngIf="uiMode.add">Create new user</h3>
+        <h3 *ngIf="uiMode.edit">Current user</h3>
+      </header>
+      <app-user-fields-form></app-user-fields-form>
+      <div class="form-field form-submit">
+        <input class="btn btn-create-user" type="submit" value="Create" />
+      </div>
+    </form>
+  </div>
+</div>
