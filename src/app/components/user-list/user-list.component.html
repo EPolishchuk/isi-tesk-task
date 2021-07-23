@@ -35,7 +35,7 @@
     <form *ngIf="uiMode !== 2" [formGroup]="userData" class="form">
       <header>
         <h3 *ngIf="uiMode === 0">Create new user</h3>
-        <h3 *ngIf="uiMode === 1">Current user</h3>
+        <h3 *ngIf="uiMode === 1">{{this.currentUser?.firstName + ' ' + this.currentUser?.lastName}}</h3>
       </header>
       <app-user-fields-form
         [formFields]="userData"
@@ -63,6 +63,7 @@
           name="update"
           type="submit"
           value="Save"
+          (click)="save(currentUser)"
         />
       </div>
     </form>

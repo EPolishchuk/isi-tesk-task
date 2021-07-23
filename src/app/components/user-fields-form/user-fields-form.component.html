@@ -7,6 +7,9 @@
       name="username"
       id="username"
     />
+            <span *ngIf="formFields.controls.username.touched && formFields.controls.username.invalid"
+          >Enter a valid username</span
+        >
   </div>
   <div class="form-field">
     <label for="first-name">First name*</label>
@@ -16,6 +19,9 @@
       name="first-name"
       id="first-name"
     />
+    <span *ngIf="formFields.controls.firstName.touched && formFields.controls.firstName.invalid"
+    >Enter a valid name</span
+  >
   </div>
   <div class="form-field">
     <label for="last-name">Last name*</label>
@@ -25,10 +31,14 @@
       name="last-name"
       id="last-name"
     />
+    <span *ngIf="formFields.controls.lastName.touched && formFields.controls.lastName.invalid"
+    >Enter a valid last name</span>
   </div>
   <div class="form-field">
     <label for="email">Email*</label>
     <input formControlName="email" type="email" name="email" id="email" />
+    <span *ngIf="formFields.controls.email.touched && formFields.controls.email.invalid"
+    >Enter a valid email</span>
   </div>
   <div class="form-field">
     <label for="type">Type*</label>
@@ -46,6 +56,8 @@
       name="password"
       id="password"
     />
+    <span *ngIf="formFields.controls.password.touched && formFields.controls.password.invalid"
+    >Enter a valid password</span>
   </div>
   <div class="form-field">
     <label for="password-confirm">Request password*</label>
@@ -55,5 +67,7 @@
       name="password-confirm"
       id="password-confirm"
     />
+    <span *ngIf="formFields.controls.confirmPassword.touched && formFields.controls.confirmPassword.invalid && confirmPassword !== password"
+    >Enter a valid password</span>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UiService } from '../../services/ui.service';
 import { Subscription } from 'rxjs';
 
@@ -10,6 +10,14 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit {
   showCreateForm?: boolean;
   subscription?: Subscription;
+
+  get showErrorMessage() {
+    return this.uiService.showErrorMessage;
+  }
+
+  get showSuccessMessage() {
+    return this.uiService.showSuccessMessage;
+  }
 
   constructor(private uiService: UiService) {
     this.subscription = this.uiService

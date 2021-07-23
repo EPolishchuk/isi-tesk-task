@@ -2,6 +2,7 @@
 .control-row {
   display: flex;
   justify-content: space-between;
+  height: 56px;
 }
 
 .control-row {
@@ -20,11 +21,13 @@
 }
 
 .message-error {
+  margin-right: auto;
   background-color: #ef7da0;
   box-shadow: 0px 10px 15px #ef7da05c;
 }
 
 .message-success {
+  margin-left: auto;
   background-color: #66bb6a;
   box-shadow: 0px 10px 15px #4caf505c;
 }

@@ -12,6 +12,8 @@ interface FormType {
 export class UiService {
   showCreateUser: FormType = { create: false };
   showUpdateUser: FormType = { update: false };
+  showSuccessMessage: boolean = false;
+  showErrorMessage: boolean = false;
   private subject = new Subject<any>();
 
   constructor() {}
@@ -26,6 +28,16 @@ export class UiService {
     this.showUpdateUser.update = !this.showUpdateUser.update;
     this.showCreateUser.create = false;
     this.subject.next(this.showUpdateUser);
+  }
+
+  toggleSuccessMessage(): void {
+    this.showSuccessMessage = !this.showSuccessMessage;
+    this.subject.next(this.showSuccessMessage);
+  }
+
+  toggleErrorMessage(): void {
+    this.showErrorMessage = !this.showErrorMessage;
+    this.subject.next(this.showErrorMessage);
   }
 
   onToggle(): Observable<any> {

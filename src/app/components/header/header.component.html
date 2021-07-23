@@ -1,7 +1,7 @@
 <header>
   <div class="notification-row">
-    <div class="message message-error"><span>Error message</span></div>
-    <div class="message message-success"><span>Success message</span></div>
+    <div *ngIf="showErrorMessage" class="message message-error"><span>Error =(</span></div>
+    <div *ngIf="showSuccessMessage" class="message message-success"><span>Saved :3</span></div>
   </div>
   <div class="col-xs-8 control-row">
     <button (click)="toggleCreateUser()" class="btn btn-create-user">

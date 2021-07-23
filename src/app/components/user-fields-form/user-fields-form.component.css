@@ -14,8 +14,17 @@
   margin: 5px 0;
   padding: 15px;
   font-size: 14px;
+  color: #3f4254;
   background-color: #f3f6f9;
   outline: none;
   border: 1px solid transparent;
   border-radius: 6px;
+}
+
+span {
+  color: red;
+}
+
+input.ng-dirty.ng-invalid {
+  border: 1px solid crimson;
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidatorFn, ValidationErrors, AbstractControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { UiService } from '../../services/ui.service';
 import { UserService } from '../../services/user.service';
@@ -10,7 +10,6 @@ enum mode {
   edit,
   view,
 }
-
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -28,9 +27,21 @@ export class UserListComponent implements OnInit {
     lastName: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     type: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+    password: new FormControl('',
+    Validators.compose([Validators.required, this.passwordPatternValidator()])),
     confirmPassword: new FormControl('', Validators.required),
   });
+
+  passwordPatternValidator(): ValidatorFn {
+    return (passwordControl: AbstractControl): ValidationErrors | null => {
+      if (!passwordControl.value) {
+        return { emptyPassword: true };
+      }
+      const leterAndDigit = /^(?=.*?\d)(?=.*?[a-zA-Z])[a-zA-Z\d]+$/;
+      const valid = leterAndDigit.test(passwordControl.value);
+      return valid ? null : { invalidPassword: true };
+    };
+  }
 
   get user() {
     return {
@@ -42,6 +53,14 @@ export class UserListComponent implements OnInit {
       password: this.userData.get('password'),
       confirmPassword: this.userData.get('confirmPassword'),
     };
+  }
+
+  get showErrorMessage() {
+    return this.uiService.showErrorMessage;
+  }
+
+  get showSuccessMessage() {
+    return this.uiService.showSuccessMessage;
   }
 
   constructor(private userService: UserService, private uiService: UiService) {
@@ -59,9 +78,15 @@ export class UserListComponent implements OnInit {
     this.userService.getUsers().subscribe((users) => (this.users = users));
   }
 
-  updateForm(user: User): void {
-    this.uiService.toggleUpdateUser();
-    this.currentUser = user;
+  updateForm(user: User): void {    
+    if (this.currentUser === undefined) {
+      this.currentUser = user;
+    }
+    if (this.currentUser?.id === user.id) {
+      this.uiService.toggleUpdateUser();
+    } else {
+      this.currentUser = user;
+    }
   }
 
   onSubmit() {
@@ -79,6 +104,12 @@ export class UserListComponent implements OnInit {
       this.userService
         .addUser(newUser)
         .subscribe((user) => this.users.push(user));
+
+      this.uiService.toggleSuccessMessage();
+
+      setTimeout(() => {
+        this.uiService.toggleSuccessMessage();
+      }, 2000);  
     }
   }
 
@@ -87,8 +118,45 @@ export class UserListComponent implements OnInit {
       this.userService
         .deleteUser(user)
         .subscribe(
-          () => (this.users = this.users.filter((user) => user.id !== user.id))
+          () => {
+            (this.users = this.users.filter((deletedUser) => deletedUser.id !== user.id)); 
+            this.uiService.toggleUpdateUser();
+          }
         );
+
+        this.uiService.toggleSuccessMessage();
+
+        setTimeout(() => {
+          this.uiService.toggleSuccessMessage();
+        }, 2000);  
+    }
+  }
+
+  save(user?: User) {
+    let updatedUser: User = {
+      id: user?.id || this.user?.type?.value + this.user?.firstName?.value,
+      username: this.user?.username?.value,
+      firstName: this.user?.firstName?.value,
+      lastName: this.user?.lastName?.value,
+      email: this.user?.email?.value,
+      type: this.user?.type?.value,
+      password: this.user?.password?.value,
+    };
+    if (updatedUser) {
+      this.userService
+        .updateUser(updatedUser)
+        .subscribe(
+          () => {
+            const userIndex = this.users.findIndex((el) => el.id === updatedUser.id);
+            this.users[userIndex] = updatedUser;
+          }
+        );
+
+        this.uiService.toggleSuccessMessage();
+
+        setTimeout(() => {
+          this.uiService.toggleSuccessMessage();
+        }, 2000);  
     }
   }
 }
