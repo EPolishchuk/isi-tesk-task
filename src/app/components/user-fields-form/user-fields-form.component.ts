@@ -26,8 +26,18 @@ export class UserFieldsFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log('this is form: ', this.currentUser);
-    console.log('this is form: ', this.username);
-    this.username = this.currentUser?.username;
+    if (this.currentUser) {
+      this.formFields.setValue({
+        username: this.currentUser?.username,
+        firstName: this.currentUser?.firstName,
+        lastName: this.currentUser?.lastName,
+        email: this.currentUser?.email,
+        type: this.currentUser?.type,
+        password: this.currentUser?.password || null,
+        confirmPassword: this.currentUser?.password || null,
+      });
+    } else {
+      this.formFields.reset();
+    }
   }
 }

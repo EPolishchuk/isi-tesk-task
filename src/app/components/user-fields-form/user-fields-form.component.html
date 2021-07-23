@@ -1,42 +1,59 @@
-<div [formGroup]="formFields" class="form-field">
-  <label for="username">Username*</label>
-  <input formControlName="username" type="text" name="username" id="username" />
-</div>
-<div class="form-field">
-  <label for="first-name">First name*</label>
-  <input
-    [(ngModel)]="firstName"
-    type="text"
-    name="first-name"
-    id="first-name"
-  />
-</div>
-<div class="form-field">
-  <label for="last-name">Last name*</label>
-  <input [(ngModel)]="lastName" type="text" name="last-name" id="last-name" />
-</div>
-<div class="form-field">
-  <label for="email">Email*</label>
-  <input [(ngModel)]="email" type="email" name="email" id="email" />
-</div>
-<div class="form-field">
-  <label for="type">Type*</label>
-  <select [(ngModel)]="type" name="type" id="type">
-    <option value="null"></option>
-    <option value="driver">Driver</option>
-    <option value="administrator">Administrator</option>
-  </select>
-</div>
-<div class="form-field">
-  <label for="password">Password*</label>
-  <input [(ngModel)]="password" type="password" name="password" id="password" />
-</div>
-<div class="form-field">
-  <label for="password-confirm">Request password*</label>
-  <input
-    [(ngModel)]="confirmPassword"
-    type="password"
-    name="password-confirm"
-    id="password-confirm"
-  />
+<div [formGroup]="formFields">
+  <div class="form-field">
+    <label for="username">Username*</label>
+    <input
+      formControlName="username"
+      type="text"
+      name="username"
+      id="username"
+    />
+  </div>
+  <div class="form-field">
+    <label for="first-name">First name*</label>
+    <input
+      formControlName="firstName"
+      type="text"
+      name="first-name"
+      id="first-name"
+    />
+  </div>
+  <div class="form-field">
+    <label for="last-name">Last name*</label>
+    <input
+      formControlName="lastName"
+      type="text"
+      name="last-name"
+      id="last-name"
+    />
+  </div>
+  <div class="form-field">
+    <label for="email">Email*</label>
+    <input formControlName="email" type="email" name="email" id="email" />
+  </div>
+  <div class="form-field">
+    <label for="type">Type*</label>
+    <select formControlName="type" name="type" id="type">
+      <option value="null"></option>
+      <option value="driver">Driver</option>
+      <option value="administrator">Administrator</option>
+    </select>
+  </div>
+  <div class="form-field">
+    <label for="password">Password*</label>
+    <input
+      formControlName="password"
+      type="password"
+      name="password"
+      id="password"
+    />
+  </div>
+  <div class="form-field">
+    <label for="password-confirm">Request password*</label>
+    <input
+      formControlName="confirmPassword"
+      type="password"
+      name="password-confirm"
+      id="password-confirm"
+    />
+  </div>
 </div>

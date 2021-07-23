@@ -46,8 +46,8 @@ export class UserListComponent implements OnInit {
 
   constructor(private userService: UserService, private uiService: UiService) {
     this.subscription = this.uiService.onToggle().subscribe((value) => {
-      console.log(value);
       if ('create' in value) {
+        if (value.create) this.currentUser = undefined;
         this.uiMode = value.create ? 0 : 2;
       } else if ('update' in value) {
         this.uiMode = value.update ? 1 : 2;
@@ -59,13 +59,36 @@ export class UserListComponent implements OnInit {
     this.userService.getUsers().subscribe((users) => (this.users = users));
   }
 
-  updateForm(user: User, index: number): void {
+  updateForm(user: User): void {
     this.uiService.toggleUpdateUser();
     this.currentUser = user;
-    console.log('this is list: ', user, index);
   }
 
   onSubmit() {
-    console.log(this.user);
+    if (this.userData.valid) {
+      let newUser: User = {
+        id: this.user?.type?.value + this.user?.firstName?.value,
+        username: this.user?.username?.value,
+        firstName: this.user?.firstName?.value,
+        lastName: this.user?.lastName?.value,
+        email: this.user?.email?.value,
+        type: this.user?.type?.value,
+        password: this.user?.password?.value,
+      };
+
+      this.userService
+        .addUser(newUser)
+        .subscribe((user) => this.users.push(user));
+    }
+  }
+
+  delete(user?: User) {
+    if (user) {
+      this.userService
+        .deleteUser(user)
+        .subscribe(
+          () => (this.users = this.users.filter((user) => user.id !== user.id))
+        );
+    }
   }
 }

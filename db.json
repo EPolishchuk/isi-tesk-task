@@ -103,6 +103,15 @@
       "lastName": "Burt",
       "email": "mcneilburt@pharmex.com",
       "type": "Administrator"
+    },
+    {
+      "id": "administrator12312312",
+      "username": "123123",
+      "firstName": "12312312",
+      "lastName": "sadfasdfsdf",
+      "email": "3123123@3123123123",
+      "type": "administrator",
+      "password": "dsfadf"
     }
   ]
 }
